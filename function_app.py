@@ -156,8 +156,7 @@ def get_pokemon_full(type:str, sample_size:int)-> pd.DataFrame:
             sample_pokemon_list = pokemon_list
         #Escenario valido: Donde el sample es un numero entre 1 y el tamaño de registros obtenidos
         else:
-            # sample_pokemon_list = pokemon_list[:sample_size]
-            sample_pokemon_list = pokemon_list[:random.randint(1, list_len)]
+            sample_pokemon_list = random.sample(pokemon_list, k = sample_size)
 
     except requests.RequestException as e:
         print(f"Error al obtener datos del Pokemon tipo: {type}: {e}")
